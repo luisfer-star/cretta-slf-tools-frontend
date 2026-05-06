@@ -132,6 +132,7 @@ let toolConfig = null;
 let priorities = [];
 let maxId = 0;
 let pendingCalculation = false;
+let readyRetryTimer = null;
 
 const els = {
   criteriaLegend: document.getElementById("criteriaLegend"),
@@ -178,6 +179,8 @@ window.addEventListener("message", (event) => {
 
 function applyConfig(config) {
   toolConfig = config;
+  stopReadyRetry();
+
   priorities = [];
   maxId = 0;
   renderLegend();
@@ -389,7 +392,22 @@ els.resetBtn.addEventListener("click", resetAll);
 els.printBtn.addEventListener("click", () => window.print());
 els.contactBtn.addEventListener("click", () => sendToWix("TOOL_CTA_CLICKED", { cta: "contact_cretta" }));
 
-sendToWix("TOOL_READY");
+function startReadyRetry() {
+  sendToWix("TOOL_READY");
+  readyRetryTimer = window.setInterval(() => {
+    if (!toolConfig) sendToWix("TOOL_READY");
+  }, 1000);
+}
+
+function stopReadyRetry() {
+  if (readyRetryTimer) {
+    window.clearInterval(readyRetryTimer);
+    readyRetryTimer = null;
+  }
+}
+
+startReadyRetry();
+
 </script>
 </body>
 </html>
