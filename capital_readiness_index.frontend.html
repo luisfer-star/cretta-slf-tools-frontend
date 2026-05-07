@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Readiness Index™ · CRETTA SLF</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+:root{--navy:#0D1B3E;--navy2:#142248;--navy3:#1a2d5a;--gold:#C49A3C;--gold2:#d4ab50;--cream:#F4F1EC;--cream2:#ece8e0;--cream3:#f8f6f1;--t1:#1a1a1a;--t2:#3a3a3a;--t3:#6a6a6a;--r:rgba(196,154,60,0.2);--s4:#1a5c2e;--s4l:rgba(26,92,46,0.12);--s3:#2d7a42;--s3l:rgba(45,122,66,0.1);--s2:#8a5c00;--s2l:rgba(196,140,0,0.1);--s1:#8a1a1a;--s1l:rgba(138,26,26,0.1)}
+*{box-sizing:border-box;margin:0;padding:0}html{font-size:15px}body{background:var(--cream3);font-family:'Montserrat',sans-serif;color:var(--t1);-webkit-font-smoothing:antialiased;min-height:100vh}button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;outline:none;background:none}
+.topbar{background:var(--navy);padding:13px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:100}.tb-brand{font-size:.53rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}.tb-right{display:flex;align-items:center;gap:12px}.tb-label{font-size:.5rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(244,241,236,.3)}.btn-print{font-size:.52rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(196,154,60,.28);color:var(--gold)}
+.prog-track{height:2px;background:rgba(196,154,60,.1)}.prog-fill{height:100%;background:var(--gold);transition:width .4s ease}.shell{max-width:720px;margin:0 auto;padding:0 28px}.screen{display:none;padding:38px 0 60px;animation:fi .3s ease}.screen.active{display:block}@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}.eyebrow{font-size:.52rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}.h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,5vw,3rem);font-weight:300;color:var(--navy);line-height:1.12;margin-bottom:8px}.h1 em{font-style:italic;color:var(--gold2)}.rule{width:32px;height:1px;background:var(--gold);opacity:.5;margin-bottom:18px}.lead{font-size:.82rem;color:var(--t2);line-height:1.82;margin-bottom:18px}.callout{background:var(--navy);padding:20px 22px;margin-bottom:22px}.callout p{font-family:'Cormorant Garamond',serif;font-size:1.02rem;font-style:italic;color:var(--cream);line-height:1.7;font-weight:300}.callout strong{color:var(--gold2);font-style:normal;font-weight:400}.sec-lbl{font-size:.5rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);display:block;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--r)}
+.dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:26px}.dim-card{background:white;padding:14px 15px;border-left:2px solid var(--r)}.dc-num{font-size:.46rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px}.dc-name{font-size:.72rem;font-weight:700;color:var(--navy);margin-bottom:2px}.dc-desc{font-size:.6rem;color:var(--t3);line-height:1.4}.btn-start,.btn-next{background:var(--navy);color:var(--cream);padding:14px 32px;font-size:.64rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}.btn-start:disabled{opacity:.45;cursor:wait}.dim-prog{display:flex;gap:2px;margin-bottom:20px}.dp-item{flex:1;height:3px;background:var(--cream2);border-radius:1px}.dp-item.done{background:var(--gold)}.dp-item.active{background:rgba(196,154,60,.5)}.dim-hdr{background:var(--navy);padding:20px 22px;margin-bottom:22px}.dh-eye{font-size:.48rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(196,154,60,.5);display:block;margin-bottom:4px}.dh-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--cream);margin-bottom:3px}.dh-sub{font-size:.58rem;color:rgba(244,241,236,.38);font-style:italic}.q-block{background:white;padding:16px 18px;margin-bottom:2px}.q-num{font-size:.46rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px}.q-text{font-size:.78rem;font-weight:600;color:var(--navy);line-height:1.4;margin-bottom:12px}.scale-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}.sc-btn{padding:10px 6px;border:1px solid var(--r);background:white;text-align:center;transition:all .12s}.sc-btn .sn{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;display:block;line-height:1;margin-bottom:3px}.sc-btn .sl{font-size:.44rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.sc-btn[data-s="1"]{background:#fdf3f3}.sc-btn[data-s="1"] .sn,.sc-btn[data-s="1"] .sl{color:var(--s1)}.sc-btn[data-s="1"].sel{border-color:var(--s1);background:var(--s1l)}.sc-btn[data-s="2"]{background:#fdf8ed}.sc-btn[data-s="2"] .sn,.sc-btn[data-s="2"] .sl{color:var(--s2)}.sc-btn[data-s="2"].sel{border-color:var(--s2);background:var(--s2l)}.sc-btn[data-s="3"]{background:#f3f9f4}.sc-btn[data-s="3"] .sn,.sc-btn[data-s="3"] .sl{color:var(--s3)}.sc-btn[data-s="3"].sel{border-color:var(--s3);background:var(--s3l)}.sc-btn[data-s="4"]{background:#f0f8f2}.sc-btn[data-s="4"] .sn,.sc-btn[data-s="4"] .sl{color:var(--s4)}.sc-btn[data-s="4"].sel{border-color:var(--s4);background:var(--s4l)}
+.eval-nav{display:flex;gap:8px;margin-top:18px}.btn-back{color:var(--t3);border:1px solid var(--r);padding:10px 16px;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.btn-next{padding:10px 24px;font-size:.58rem;opacity:.3;pointer-events:none}.btn-next.ready{opacity:1;pointer-events:all}.calc-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:65vh;text-align:center}.calc-lbl{font-size:.54rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}.calc-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:300;color:var(--navy);margin-bottom:28px;line-height:1.3}.calc-bar-bg{width:200px;height:2px;background:rgba(13,27,62,.1);overflow:hidden}.calc-bar-fill{height:100%;background:var(--gold);animation:cl 2.2s ease forwards}@keyframes cl{from{width:0}to{width:100%}}
+.res-hero{background:var(--navy);padding:28px 26px;margin-bottom:2px;position:relative;overflow:hidden}.rh-eye{font-size:.46rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(196,154,60,.55);display:block;margin-bottom:8px}.rh-row{display:flex;align-items:center;gap:18px;margin-bottom:8px}.rh-score{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;line-height:1}.rh-archetype{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;color:var(--cream);margin-bottom:3px;line-height:1.2}.rh-sub{font-size:.5rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,154,60,.5)}.rh-def{font-size:.7rem;color:rgba(244,241,236,.5);font-style:italic;line-height:1.65;max-width:540px}.legend{display:flex;gap:14px;flex-wrap:wrap;padding:12px 20px;background:var(--cream2);margin-bottom:2px}.leg-item{display:flex;align-items:center;gap:6px;font-size:.46rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--t3)}.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}.dim-bars{background:white;padding:20px;margin-bottom:2px}.dim-bar-item{margin-bottom:13px}.dbi-hdr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}.dbi-name{font-size:.65rem;font-weight:700;color:var(--navy)}.dbi-score{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300}.dbi-track{height:8px;background:var(--cream2);border-radius:2px;overflow:hidden}.dbi-fill{height:100%;border-radius:2px;transition:width .7s ease}.gap-sec{background:var(--cream);padding:18px 20px;margin-bottom:2px}.gap-item{background:white;padding:14px 16px;margin-bottom:2px}.gap-badge{font-size:.44rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;display:inline-block;margin-bottom:5px}.gb-crit{background:var(--s1l);color:var(--s1)}.gb-dev{background:var(--s2l);color:var(--s2)}.gap-title{font-size:.78rem;font-weight:700;color:var(--navy);margin-bottom:4px}.gap-text{font-size:.7rem;color:var(--t2);line-height:1.65;margin-bottom:6px}.gap-rec{font-size:.65rem;color:var(--t3);font-style:italic}.sum-bar{background:var(--navy2);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:2px}.sb-stats{display:flex;gap:18px;flex-wrap:wrap}.sb-stat{text-align:center}.sb-num{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;display:block;line-height:1}.sb-lbl{font-size:.42rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(244,241,236,.28)}.btn-restart{font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;border:1px solid rgba(196,154,60,.18);color:rgba(244,241,236,.35)}.cta-blk{background:var(--navy);padding:30px 26px;text-align:center}.cta-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;font-style:italic;color:var(--cream);line-height:1.7;max-width:520px;margin:0 auto 18px}.btn-cta{background:var(--gold);color:var(--navy);padding:12px 26px;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.phil{background:var(--navy2);padding:18px 22px}.phil p{font-family:'Cormorant Garamond',serif;font-size:.92rem;font-weight:300;font-style:italic;color:rgba(244,241,236,.45);line-height:1.7}.phil strong{color:var(--gold2);font-style:normal;font-weight:400}.error-box{display:none;background:#fff4f1;border:1px solid rgba(138,26,26,.22);color:var(--s1);font-size:.72rem;line-height:1.55;padding:12px 14px;margin:14px 0}
+@media print{.topbar,.eval-nav,.btn-print,.btn-restart,.btn-cta{display:none!important}body{background:white}}@media(max-width:600px){.dim-grid{grid-template-columns:1fr}.scale-row{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="tb-brand">CRETTA · Strategic Leadership Firm</span><div class="tb-right"><span class="tb-label">Capital Readiness Index™ · Exclusivo</span><button class="btn-print" id="printBtn">Exportar PDF</button></div></div>
+<div class="prog-track"><div class="prog-fill" id="pFill" style="width:0%"></div></div>
+<div class="shell">
+<div class="error-box" id="errorBox"></div>
+<div class="screen active" id="sIntro">
+  <span class="eyebrow">Preparación para capital · SLF Insights · Exclusivo</span><h1 class="h1">Capital Readiness <em>Index™</em></h1><div class="rule"></div>
+  <p class="lead">Levantar capital es uno de los procesos más demandantes para un CEO de empresa mediana. Este índice evalúa si la empresa tiene las condiciones institucionales, operativas y estratégicas para entrar a un proceso de capital con posibilidades reales de éxito — y en condiciones favorables.</p>
+  <div class="callout"><p>La diferencia entre una empresa que levanta capital en condiciones favorables y una que lo acepta en condiciones desfavorables no suele ser la calidad del negocio. Suele ser la calidad de la preparación. <strong>Un inversionista no paga por lo que la empresa es hoy. Paga por lo que cree que la empresa puede ser — y la preparación es la evidencia que sustenta esa creencia.</strong></p></div>
+  <span class="sec-lbl">4 dimensiones evaluadas · 16 preguntas · Escala 1–4</span><div class="dim-grid" id="dimGrid"></div>
+  <button class="btn-start" id="startBtn" disabled>Cargando herramienta...</button>
+</div>
+<div class="screen" id="sEval"><div class="dim-prog" id="dimProg"></div><div class="dim-hdr"><span class="dh-eye" id="dhEye"></span><div class="dh-name" id="dhName"></div><div class="dh-sub" id="dhSub"></div></div><div id="qCont"></div><div class="eval-nav"><button class="btn-back" id="btnBack" style="display:none">← Anterior</button><button class="btn-next" id="btnNext">Siguiente →</button></div></div>
+<div class="screen" id="sCalc"><div class="calc-wrap"><span class="calc-lbl">Evaluando la preparación para capital</span><p class="calc-title">Analizando las condiciones<br>para el proceso de inversión</p><div class="calc-bar-bg"><div class="calc-bar-fill"></div></div></div></div>
+<div class="screen" id="sRes">
+  <div class="res-hero"><span class="rh-eye">Capital Readiness Index™ · Resultado</span><div class="rh-row"><div class="rh-score" id="rScore"></div><div><div class="rh-archetype" id="rArch"></div><div class="rh-sub" id="rSub"></div></div></div><div class="rh-def" id="rDef"></div></div>
+  <div class="legend"><div class="leg-item"><div class="leg-dot" style="background:var(--s1)"></div>1 — Ausente</div><div class="leg-item"><div class="leg-dot" style="background:var(--s2)"></div>2 — Parcial</div><div class="leg-item"><div class="leg-dot" style="background:var(--s3)"></div>3 — Desarrollado</div><div class="leg-item"><div class="leg-dot" style="background:var(--s4)"></div>4 — Robusto</div></div>
+  <div class="dim-bars"><span class="sec-lbl" style="margin-bottom:14px">Resultado por dimensión</span><div id="dimBars"></div></div>
+  <div class="gap-sec"><span class="sec-lbl">Brechas identificadas y acciones prioritarias</span><div id="gapItems"></div></div>
+  <div class="sum-bar"><div class="sb-stats" id="sbStats"></div><button class="btn-restart" id="restartBtn">Nuevo diagnóstico</button></div>
+  <div class="cta-blk"><p class="cta-text">El proceso de capital es uno de los más exigentes que enfrenta un CEO. Cretta puede acompañar la preparación y el posicionamiento estratégico para maximizar el resultado del proceso.</p><button class="btn-cta" id="ctaBtn">Contactar a Cretta →</button></div>
+  <div class="phil"><p><strong>Preparación para capital</strong> — El capital no llega al mejor negocio. Llega al mejor negocio que puede articular por qué es el mejor negocio — con la evidencia, la estructura y la narrativa que lo hacen convincente para alguien que no lo conoce.</p></div>
+</div>
+</div>
+<script>
+const TOOL_CODE = "capital_readiness_index";
+const TOOL_VERSION = "1.0.0";
+let config = null;
+let cur = 0;
+let answers = [];
+let readyTimer = null;
+const el = (id) => document.getElementById(id);
+function send(type, payload){ window.parent.postMessage({ type, toolCode: TOOL_CODE, version: TOOL_VERSION, payload: payload || {} }, "*"); }
+window.addEventListener("message", (event) => {
+  const msg = event.data || {};
+  if (msg.toolCode && msg.toolCode !== TOOL_CODE) return;
+  if (msg.type === "TOOL_CONFIG") applyConfig(msg.payload || {});
+  if (msg.type === "TOOL_RESULT") renderResult(msg.payload || {});
+  if (msg.type === "TOOL_ERROR") showError((msg.payload && msg.payload.message) || "Error procesando la herramienta.");
+});
+function applyConfig(payload){
+  config = payload;
+  if (readyTimer) window.clearInterval(readyTimer);
+  answers = config.dimensions.map(() => []);
+  renderIntro();
+  el("startBtn").disabled = false;
+  el("startBtn").textContent = "Iniciar diagnóstico — 16 preguntas →";
+}
+function renderIntro(){
+  el("dimGrid").innerHTML = "";
+  config.dimensions.forEach((d,i) => {
+    el("dimGrid").insertAdjacentHTML("beforeend", `<div class="dim-card"><span class="dc-num">D${i+1}</span><div class="dc-name">${d.name}</div><div class="dc-desc">${d.desc}</div></div>`);
+  });
+}
+function showScreen(id){ ["sIntro","sEval","sCalc","sRes"].forEach((sid) => el(sid).classList.toggle("active", sid === id)); window.scrollTo(0,0); }
+function start(){ cur = 0; renderDim(0); showScreen("sEval"); updateProgress(); }
+function renderDim(idx){
+  const d = config.dimensions[idx];
+  el("dhEye").textContent = `Dimensión ${idx+1} de ${config.dimensions.length}`;
+  el("dhName").textContent = d.name;
+  el("dhSub").textContent = d.sub;
+  el("dimProg").innerHTML = config.dimensions.map((_,i) => `<div class="dp-item${i<idx?" done":i===idx?" active":""}"></div>`).join("");
+  el("qCont").innerHTML = "";
+  d.questions.forEach((q,qi) => {
+    const selected = answers[idx][qi];
+    const scale = config.scale.map((s) => `<button class="sc-btn${selected===s.value?" sel":""}" data-s="${s.value}" type="button" data-q="${qi}" data-v="${s.value}"><span class="sn">${s.value}</span><span class="sl">${s.label}</span></button>`).join("");
+    el("qCont").insertAdjacentHTML("beforeend", `<div class="q-block"><span class="q-num">Pregunta ${qi+1} de ${d.questions.length}</span><div class="q-text">${q}</div><div class="scale-row">${scale}</div></div>`);
+  });
+  document.querySelectorAll(".sc-btn").forEach((btn) => btn.addEventListener("click", () => setAnswer(idx, Number(btn.dataset.q), Number(btn.dataset.v))));
+  el("btnBack").style.display = idx === 0 ? "none" : "inline-block";
+  el("btnNext").textContent = idx === config.dimensions.length - 1 ? "Ver resultado →" : "Siguiente dimensión →";
+  updateNext();
+}
+function setAnswer(d,q,v){ answers[d][q] = v; renderDim(d); }
+function completeDim(i){ return config.dimensions[i].questions.every((_,q) => answers[i][q] !== undefined); }
+function updateNext(){ el("btnNext").classList.toggle("ready", completeDim(cur)); }
+function goNext(){ if(!completeDim(cur)) return; if(cur === config.dimensions.length - 1){ calculate(); return; } cur += 1; renderDim(cur); updateProgress(); }
+function goBack(){ if(cur === 0) return; cur -= 1; renderDim(cur); updateProgress(); }
+function updateProgress(){ const done = config ? config.dimensions.filter((_,i) => completeDim(i)).length : 0; el("pFill").style.width = config ? Math.round((done/config.dimensions.length)*100)+"%" : "0%"; }
+function calculate(){ showScreen("sCalc"); send("TOOL_CALCULATE", { answers: { dimensions: answers } }); }
+function renderResult(result){
+  const arch = result.archetype || {};
+  el("rScore").textContent = result.overallScoreDisplay || "";
+  el("rScore").style.color = arch.color || "var(--gold)";
+  el("rArch").textContent = arch.name || "";
+  el("rSub").textContent = arch.sub || "";
+  el("rDef").textContent = arch.def || "";
+  el("dimBars").innerHTML = "";
+  (result.dimensionScores || []).forEach((d) => el("dimBars").insertAdjacentHTML("beforeend", `<div class="dim-bar-item"><div class="dbi-hdr"><span class="dbi-name">${d.name}</span><span class="dbi-score" style="color:${d.color}">${d.scoreDisplay} / 4.0</span></div><div class="dbi-track"><div class="dbi-fill" style="width:${d.percent}%;background:${d.color}"></div></div></div>`));
+  const gaps = result.gaps || [];
+  el("gapItems").innerHTML = gaps.length ? "" : '<div class="gap-item"><p style="font-size:.75rem;color:var(--t2);font-style:italic;line-height:1.7">Los resultados en todas las dimensiones son sólidos. La prioridad es sostener y escalar esta madurez al ritmo del crecimiento de la empresa.</p></div>';
+  gaps.forEach((g) => el("gapItems").insertAdjacentHTML("beforeend", `<div class="gap-item"><span class="gap-badge ${g.status==="critical"?"gb-crit":"gb-dev"}">${g.badge}</span><div class="gap-title">${g.dimensionName}</div><p class="gap-text">${g.text}</p><p class="gap-rec">Primer paso: ${g.action}</p></div>`));
+  const s = result.stats || {};
+  el("sbStats").innerHTML = `<div class="sb-stat"><span class="sb-num" style="color:var(--gold)">${s.globalIndex || ""}</span><span class="sb-lbl">Índice global</span></div><div class="sb-stat"><span class="sb-num" style="color:#5abf7a">${s.solidDimensions || 0}</span><span class="sb-lbl">Dimensiones sólidas</span></div><div class="sb-stat"><span class="sb-num" style="color:#e8b84a">${s.developingDimensions || 0}</span><span class="sb-lbl">En desarrollo</span></div><div class="sb-stat"><span class="sb-num" style="color:#e87a7a">${s.criticalDimensions || 0}</span><span class="sb-lbl">Críticas</span></div>`;
+  el("pFill").style.width = "100%";
+  showScreen("sRes");
+}
+function restart(){ cur = 0; answers = config.dimensions.map(() => []); el("pFill").style.width = "0%"; showScreen("sIntro"); }
+function showError(message){ el("errorBox").style.display = "block"; el("errorBox").textContent = message; }
+el("startBtn").addEventListener("click", start);
+el("btnBack").addEventListener("click", goBack);
+el("btnNext").addEventListener("click", goNext);
+el("restartBtn").addEventListener("click", restart);
+el("printBtn").addEventListener("click", () => window.print());
+el("ctaBtn").addEventListener("click", () => send("TOOL_CTA_CLICKED", { cta: "contact_cretta" }));
+readyTimer = window.setInterval(() => { if (!config) send("TOOL_READY"); }, 1000);
+send("TOOL_READY");
+</script>
+</body>
+</html>
